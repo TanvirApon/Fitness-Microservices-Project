@@ -5,7 +5,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/airecommendationfitness
-      database: airecommendationfitness
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -16,8 +15,17 @@ spring:
       properties:
         spring.json.use.type.header: false
         spring.json.value.default.type: com.fitness.aiservice.Models.Activity
-        spring.json.trusted.package: "*"
+        spring.json.trusted.packages: "*"
 
+# Custom Configs
+gemini:
+  api:
+    url: ${GEMINI_URL}
+    key: ${GEMINI_KEY}
+
+kafka:
+  topic:
+    name: activity-topic
 
 server:
   port: 8083
